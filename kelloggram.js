@@ -108,8 +108,12 @@ async function renderPost(postId, username, imageUrl, likes) {
     // Structure of a POST Request
     let response = await fetch('http://localhost:8888/.netlify/functions/like', {
       method: 'POST',
-      body: JSON.stringify({})  
+      body: JSON.stringify({
+        postId: postId,
+        userId: currentUserId
+      })          
     })
+    console.log(response)
 
     // Step 2-5:  Implement the lambda function in like.js
     // Step 6:    Wrap the code below that visually increments the likes count in conditional logic
